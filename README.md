@@ -91,7 +91,9 @@ $ xelatex {your-cv}.tex
 
 This should result in the creation of ``{your-cv}.pdf``
 
+## Fix compilation error due to missing fonts
 
+If there is a compilation error due to missing fonts, copy the fonts from `Awesome-CV/fonts` to the relevant fonts directory (e.g. `~/.local/share/fonts`).
 ## Credit
 
 [**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
