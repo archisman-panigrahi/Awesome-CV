@@ -189,11 +189,11 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{30pt}{1em}\headerfontlight\color{black} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{30pt}{1em}\headerfont\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\color{text} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{awesome} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlight\color{black} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{text} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{10pt}{1em}\headerfont\itshape\color{awesome} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -604,8 +604,10 @@
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}     
+	\if\relax\detokenize{#5}\relax\else % THIS LINE ADDED TO CHECK IF LAST ARGUMENT IS EMPTY
+	\multicolumn{2}{L{\textwidth}}{\ifempty{#1}{\vskip-1\baselineskip}{}\descriptionstyle{#5}}% ONLY DO THIS IF #5 IS NOT EMPTY
+	\fi % END OF THE IF STATEMENT
   \end{tabular*}%
 }
 
