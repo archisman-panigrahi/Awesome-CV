@@ -27,6 +27,22 @@
 \fontdir[fonts/]
 \usepackage{hyperref}
 
+% Awesome-CV 1.6.1 puts negative vertical space around itemized lists inside
+% table cells.  Recent LaTeX releases account for that space more tightly,
+% allowing the following \cventry to overlap a multi-line description.  Keep
+% the compact list formatting, but let the table measure the list's full
+% height.  This is harmless on older TeX Live releases as well.
+\renewenvironment{cvitems}{%
+  \vspace{-3mm}%
+  \begin{justify}%
+  \begin{itemize}[leftmargin=2ex,nosep,noitemsep]%
+    \setlength{\parskip}{0pt}%
+    \renewcommand{\labelitemi}{\bullet}%
+}{%
+  \end{itemize}%
+  \end{justify}%
+}
+
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
